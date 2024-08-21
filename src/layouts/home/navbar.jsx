@@ -12,19 +12,19 @@ const Item = ({ title, route }) => {
       onClick={() => {
         navigate(route);
       }}
-      className="mr-[50px] cursor-pointer"
+      className="mr-[100px] cursor-pointer"
     >
-      <p
+      <div
         style={{
           fontWeight: selected && "700",
-          color: selected ? "#E14857" : "#727272",
+          color: selected ? "#E14878" : "#727272",
         }}
-        className="text-[11px] "
+        className="text-[10%] "
       >
         {title}
-      </p>
+      </div>
       {selected && (
-        <div className="w-[20px] h-[3px] bg-[#E14857] mt-[3px] rounded-[21px]"></div>
+        <div className="w-[20px] h-[3px] !bg-[#E14857] mt-[3px] rounded-[14px]"></div>
       )}
     </div>
   );
