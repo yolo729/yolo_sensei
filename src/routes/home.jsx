@@ -4,13 +4,13 @@ const HomePage = React.lazy(() => import("../views/index.jsx"));
 
 const Loader = () => {
   return (
-    <div className="w-[100%] h-[100vh]  flex items-center justify-center top-0 left-0">
+    <div className="w-[100%] h-[80vh]  flex items-center justify-center top-0 left-0">
       <div role="status">
         <svg
           aria-hidden="true"
           className="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
-          viewBox="0 0 100 101"
-          fill="none"
+          viewBox="0 0 100 106"
+          fill="gray"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -39,15 +39,11 @@ const Home = () => {
     };
   });
   return (
-    <>
-      {loading ? (
-        <Loader />
-      ) : (
-        <Suspense fallback={null}>
-          <HomePage />
-        </Suspense>
-      )}
-    </>
+    <div>
+      <Suspense fallback={null}>
+        <HomePage />
+      </Suspense>
+    </div>
   );
 };
 
