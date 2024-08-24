@@ -10,8 +10,6 @@ const Checkoutform = () => {
   const [name, setCardName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   // const [email, setEmail] = useState("metaknowya@gmail.com");
-  const [email, setEmail] = useState("");
-  const priceId = "price_1Ni4zSIzxhFKhxAIWnTvdkNT";
 
   // stripe items
   const stripe = useStripe();
@@ -30,11 +28,9 @@ const Checkoutform = () => {
         },
       });
 
-      console.log("paymentMethod", paymentMethod);
-
       // call the backend to create subscription
       const response = await fetch("http://localhost:5000/api/subscription", {
-        method: "POST",
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
@@ -53,15 +49,7 @@ const Checkoutform = () => {
       // if (confirmPayment?.error) {
       //   alert(confirmPayment.error.message);
       // } else {
-      alert("Success! Check your email for the invoice.");
-      window.localStorage.setItem(
-        "sub_scription",
-        JSON.stringify({
-          cs: response.clientSecret,
-          ss: response.subscriptionId,
-          email: email,
-        })
-      );
+
       setIsLoading(false);
       navigate("/main");
       // }
@@ -91,29 +79,6 @@ const Checkoutform = () => {
             <label htmlFor="cardNumber">Card Information</label>
           </div>
           <CardElement />
-        </div>
-
-        <div className="checkout-div">
-          <label htmlFor="cardName">Name on Card</label>
-          <input
-            className="checkform-input"
-            type="text"
-            id="cardName"
-            name="cardName"
-            placeholder="Enter cardholder name"
-            value={name}
-            onChange={(e) => setCardName(e.target.value)}
-            required
-          />
-        </div>
-        <div className="checkout-div button-div">
-          <button
-            className="pay-btn"
-            onClick={createSubscription}
-            disabled={isLoading}
-          >
-            {isLoading ? "wait some mins..." : "Pay"}
-          </button>
         </div>
       </div>
       <Footer />
