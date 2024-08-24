@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const homeSlice = createSlice({
-  name: "rasing",
+  name: "home",
   initialState: {
     auth: false,
-    dark: true,
+    dark: false,
   },
   reducers: {
     setAuth: (state, action) => {

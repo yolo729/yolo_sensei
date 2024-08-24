@@ -23,12 +23,29 @@ const Modal = ({ isOpen, onClose, goLogin }) => {
       }}
     >
       <div className="modal-content">
+        <div className="m-times">
+          <span className="close d-flex justify-content-end" onClick={onClose}>
+            &times;
+          </span>
+        </div>
+        <div className="m-header">
+          <h1>Notice!</h1>
+        </div>
+        <div className="m-body">
+          <p>You have to login this site to do this</p>
+        </div>
         <div className="m-footer d-flex justify-content-space-between">
           <button
             onClick={goLogin}
             className="h-[44px] rounded-[8px] text-[14px] flex items-center bg-[#000] justify-center px-[30px] text-[#fff] font-bold"
           >
             OK
+          </button>
+          <button
+            onClick={onClose}
+            className="h-[44px] rounded-[8px] text-[14px] flex items-center bg-[#000] justify-center px-[30px] text-[#fff] font-bold"
+          >
+            Cancel
           </button>
         </div>
       </div>
@@ -98,12 +115,6 @@ const Pricing = () => {
                           •
                         </div>
                         <div>Sales Script Generator</div>
-                      </div>
-                      <div className="w-[100%] flex text-[16px] font-bold ">
-                        <div className="w-[20px] translate-y-[-0.5px] shrink-0">
-                          •
-                        </div>
-                        <div>Prices Script Generator</div>
                       </div>
                       <div className="w-[100%] flex text-[16px] font-bold ">
                         <div className="w-[20px] translate-y-[-0.5px] shrink-0">
@@ -179,6 +190,12 @@ const Pricing = () => {
                         </div>
                         <div>Salesforce & Notion Integration</div>
                       </div>
+                      <div className="w-[100%] flex text-[16px] font-bold ">
+                        <div className="w-[20px] translate-y-[-0.5px] shrink-0">
+                          •
+                        </div>
+                        <div>Periorty Support</div>
+                      </div>
                     </div>
                     <div className="w-[100%] h-[34px] flex absolute bottom-[30px] justify-center">
                       <div className="h-[44px] rounded-[8px] text-[14px] flex items-center bg-[#000] justify-center px-[30px] text-[#fff] font-bold">
@@ -231,7 +248,12 @@ const Pricing = () => {
                         </div>
                         <div>White-Labeling Option</div>
                       </div>
-
+                      <div className="w-[100%] flex text-[16px] font-bold ">
+                        <div className="w-[20px] translate-y-[-0.5px] shrink-0">
+                          •
+                        </div>
+                        <div>Dedicated Account Manager</div>
+                      </div>
                       <div className="w-[100%] flex text-[16px] font-bold ">
                         <div className="w-[20px] translate-y-[-0.5px] shrink-0">
                           •
@@ -288,7 +310,7 @@ const Pricing = () => {
                   <h1 className="text-[32px] mt-[20px] font-extrabold text-center text-[#3C3C3C] ">
                     Pro
                   </h1>
-                  <h1 className="text-[13px]  font-extrabold text-center text-[#E14857]">
+                  <h1 className="text-[26px]  font-extrabold text-center text-[#E14857]">
                     US$ 19.99
                   </h1>
                   <p className="text-[14px] text-center mt-[0px] font-medium">
@@ -323,7 +345,7 @@ const Pricing = () => {
                       <div>Basic Sales Insights</div>
                     </div>
                     <div className="w-[100%] flex text-[16px] font-bold ">
-                      <div className="w-[18px] translate-y-[-0.5px] shrink-0">
+                      <div className="w-[20px] translate-y-[-0.5px] shrink-0">
                         •
                       </div>
                       <div>Dashboard Community Support</div>
@@ -338,7 +360,7 @@ const Pricing = () => {
                     </div>
                   </div>
                 </div>
-                <div className="w-[30%] py-[20px] drop-shadow-md bg-[#fff] pb-[129px] rounded-[20px]">
+                <div className="w-[30%] py-[20px] drop-shadow-md bg-[#fff] pb-[150px] rounded-[20px]">
                   <h1 className="text-[32px] mt-[20px] font-extrabold text-center text-[#3C3C3C] ">
                     Team
                   </h1>

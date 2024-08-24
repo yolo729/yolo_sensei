@@ -4,8 +4,8 @@ import { useAuth } from "../context/auth";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-const Login = () => {
-  const [, setLoggedIn] = useState(false);
+const Login = (props) => {
+  const [zz, setLoggedIn] = useState(false);
   const { setAuthTokens } = useAuth();
 
   const navigate = useNavigate();
@@ -49,22 +49,22 @@ const Login = () => {
               console.log("Login Succeed");
               setLoggedIn(true);
               setAuthTokens({ isLoggedIn: 1, email: inputs.email });
-              // if (
-              //   response.data[0].client_secret !== null &&
-              //   response.data[0].subscription_id !== null
-              // ) {
-              //   window.localStorage.setItem(
-              //     "sub_scription",
-              //     JSON.stringify({
-              //       cs: response.data[0].client_secret,
-              //       ss: response.data[0].subscription_id,
-              //       email: inputs.email,
-              //     })
-              //   );
-              //   navigate("/main");
-              // } else {
-              // }
-              navigate("/");
+              if (
+                response.data[0].client_secret !== null &&
+                response.data[0].subscription_id !== null
+              ) {
+                window.localStorage.setItem(
+                  "sub_scription",
+                  JSON.stringify({
+                    cs: response.data[0].client_secret,
+                    ss: response.data[0].subscription_id,
+                    email: inputs.email,
+                  })
+                );
+                navigate("/main");
+              } else {
+                navigate("/");
+              }
             }
           } else {
             setError("Email is not exist");
@@ -81,10 +81,10 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <div className="w-[100%] h-[100vh] py-[100px] mobile:px-[25px] laptop:px-[80px]">
             <div className=" mobile:w-[100%] laptop:w-[500px] h-[100%] flex flex-col justify-center">
-              <h1 className="text-[50x] font-extrabold">
+              <h1 className="text-[35px] font-extrabold">
                 Login with Email and Password
               </h1>
-              <div className="w-[80%] border-[1px] overflow-hidden mobile:mt-[10px] laptop:mt-[40px] rounded-[4px] border-[#0000006B] flex ">
+              <div className="w-[100%] border-[1px] overflow-hidden mobile:mt-[10px] laptop:mt-[40px] rounded-[4px] border-[#0000006B] flex ">
                 <div className="w-[50px] h-[60px] flex items-center justify-center shrink-0">
                   <img src="/graphic/auth/mail.svg" alt="" />
                 </div>
@@ -112,7 +112,7 @@ const Login = () => {
               <button className="w-[100%] h-[50px] mt-[20px] bg-[#E14857] rounded-[3px] text-[#fff] font-bold tracking-wide cursor-pointer flex items-center justify-center">
                 Log in
               </button>
-              <div className="!d-flex !justify-content-center">
+              <div className="d-flex justify-content-center">
                 <p>
                   Don’t have an account?{" "}
                   <Link
