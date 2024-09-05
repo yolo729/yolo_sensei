@@ -11,11 +11,11 @@ const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
 const bodyParser = require("body-parser");
-const connectDb = require("./config/db.config");
+//const connectDb = require("./config/db.config");
 
 const userController = require("./src/controllers/user.controller");
 // create express app
-const MONGO_URL = process.env.MONGO_URL;
+//const MONGO_URL = process.env.MONGO_URL;
 const app = express();
 app.use(
   cors({
@@ -126,9 +126,9 @@ app.post("/api/subscription", async (req, res) => {
 });
 
 // listen for requests
-connectDb(MONGO_URL).then(() => {
+//connectDb(MONGO_URL).then(() => {
   app.listen(port, () => {
     userController.checkIP();
     console.log(`Server is listening on port ${port}`);
   });
-});
+//});
