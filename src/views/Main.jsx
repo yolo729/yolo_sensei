@@ -36,7 +36,7 @@ const Main = () => {
       setPrompts([...prompts, message]);
       setMessage("");
       await axios
-        .post(`${process.env.REACT_APP_BACKEND_URL}/api/chat`, {
+        .post("http://localhost:5000/api/chat", {
           message: message,
         })
         .then((response) => {
