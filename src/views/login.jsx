@@ -40,7 +40,7 @@ const Login = (props) => {
     } else {
       setError(null);
       axios
-        .post(`${process.env.REACT_APP_BACKEND_URL}/api/login/verify`, {
+        .post("http://localhost:5000/api/login/verify", {
           email: inputs.email,
         })
         .then((response) => {
