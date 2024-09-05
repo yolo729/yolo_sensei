@@ -1,4 +1,4 @@
-require("dotenv");
+require("dotenv").config();
 const OpenAI = require("openai");
 const openai = new OpenAI({
   apiKey: "", // defaults to process.env["OPENAI_API_KEY"]
@@ -11,16 +11,15 @@ const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
 const bodyParser = require("body-parser");
+const connectDb = require("./config/db.config");
 
 const userController = require("./src/controllers/user.controller");
 // create express app
+const MONGO_URL = process.env.MONGO_URL;
 const app = express();
-
 app.use(
   cors({
-    // origin: "http://localhost:3000",
-    // dev sandbox
-    origin: process.env.FRONTEND_URL,
+    origin: "*",
   })
 );
 
@@ -127,7 +126,9 @@ app.post("/api/subscription", async (req, res) => {
 });
 
 // listen for requests
-app.listen(port, () => {
-  userController.checkIP();
-  console.log(`Server is listening on port ${port}`);
+connectDb(MONGO_URL).then(() => {
+  app.listen(port, () => {
+    userController.checkIP();
+    console.log(`Server is listening on port ${port}`);
+  });
 });
