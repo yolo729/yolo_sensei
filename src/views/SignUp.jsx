@@ -105,7 +105,7 @@ const SignUp = () => {
   };
   const signUp = () => {
     axios
-      .post("http://localhost:5000/api/users", inputs)
+      .post(`${process.env.REACT_APP_BACKEND_URL}/api/users`, inputs)
       .then((response) => {
         navigate("/login");
         // alert(response.data);

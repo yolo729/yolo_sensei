@@ -1,3 +1,4 @@
+require("dotenv");
 const OpenAI = require("openai");
 const openai = new OpenAI({
   apiKey: "", // defaults to process.env["OPENAI_API_KEY"]
@@ -12,13 +13,14 @@ const axios = require("axios");
 const bodyParser = require("body-parser");
 
 const userController = require("./src/controllers/user.controller");
-
 // create express app
 const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    // origin: "http://localhost:3000",
+    // dev sandbox
+    origin: process.env.FRONTEND_URL,
   })
 );
 

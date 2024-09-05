@@ -40,7 +40,9 @@ const Login = (props) => {
     } else {
       setError(null);
       axios
-        .post("http://localhost:5000/api/login/verify", { email: inputs.email })
+        .post(`${process.env.REACT_APP_BACKEND_URL}/api/login/verify`, {
+          email: inputs.email,
+        })
         .then((response) => {
           if (response.data.length > 0) {
             if (inputs.password !== response.data[0].password) {

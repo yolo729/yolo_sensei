@@ -36,7 +36,9 @@ const Main = () => {
       setPrompts([...prompts, message]);
       setMessage("");
       await axios
-        .post("http://localhost:5000/api/chat", { message: message })
+        .post(`${process.env.REACT_APP_BACKEND_URL}/api/chat`, {
+          message: message,
+        })
         .then((response) => {
           setAnswers([...answers, { type: "answer", content: response.data }]);
           setIsLoading(false);
