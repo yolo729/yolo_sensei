@@ -27,8 +27,7 @@
     "stripe": "^13.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "server": "node api/server.js",
+    "start": "concurrently \"node api/server.js\" \"react-scripts start\"",
     "build": "concurrently \"node api/server.js\" \"react-scripts build\"",
     "test": "concurrently \"node api/server.js\" \"react-scripts test\"",
     "eject": "concurrently \"node api/server.js\" \"react-scripts eject\""
