@@ -34,7 +34,7 @@ const Checkoutform = () => {
 
       // call the backend to create subscription
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/subscription`,
+        "http://localhost:5000/api/subscription",
         {
           method: "POST",
           headers: {
