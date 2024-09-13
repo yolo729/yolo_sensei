@@ -29,14 +29,13 @@ export default function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signUp" element={<SignUp />} />
             <Route path="/pricing" element={<Pricing />} />
-              <Route exact path="/main" element={<Main />}></Route>
-            <Route exact path="/" element={<ProtectRoute />}>
-              <Route
-                exact
-                path="/checkout_form"
-                element={<CheckoutForm />}
-              ></Route>
-            </Route>
+            <Route path="/main" element={<Main />}></Route>
+            {/*Protected routes */}
+            <Route path="/checkout_form" element={
+              <ProtectRoute>
+                <CheckoutForm />
+              </ProtectRoute>
+            } />
           </Routes>
         </Fragment>
       </Router>

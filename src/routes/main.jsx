@@ -42,7 +42,7 @@ const Main = () => {
     {loading ? (
       <Loader />
     ) : (
-    <Suspense fallback={null}>
+    <Suspense fallback={<Loader />}>
       <MainPage />
     </Suspense>
         )}

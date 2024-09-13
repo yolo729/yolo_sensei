@@ -11,7 +11,7 @@ function PrivateRoute({ component: Component, ...rest }) {
 
   return authTokens === undefined ? (
     <Navigate to="/login" />
-  ) : authTokens.isLoggedIn === 1 &&
+  ) : authTokens && authTokens.isLoggedIn === 1 &&
     authTokens.email === sub_scription.email ? (
     <Outlet />
   ) : (
