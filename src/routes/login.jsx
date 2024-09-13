@@ -37,15 +37,9 @@ const Login = () => {
     };
   });
   return (
-    <>
-      {loading ? (
-        <Loader />
-      ) : (
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader />}>
           <LoginPage />
         </Suspense>
-      )}
-    </>
   );
 };
 
