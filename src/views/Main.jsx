@@ -22,14 +22,6 @@ const Main = () => {
     }
   };
 
-  // const handleScroll = (ref) => {
-  //   window.scrollTo({
-  //     top: ref.offsetTop,
-  //     left: 0,
-  //     behavior: "smooth",
-  //   });
-  // };
-
   const sendPrompt = async () => {
     if (message !== "") {
       console.log(message);

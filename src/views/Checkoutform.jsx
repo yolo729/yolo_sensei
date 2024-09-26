@@ -33,29 +33,19 @@ const Checkoutform = () => {
       console.log("paymentMethod", paymentMethod);
 
       // call the backend to create subscription
-      const response = await fetch(
-        "http://localhost:5000/api/subscription",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            paymentMethod: paymentMethod?.paymentMethod?.id,
-            name,
-            email,
-            priceId,
-          }),
-        }
-      ).then((res) => res.json());
+      const response = await fetch("http://localhost:5000/api/subscription", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          paymentMethod: paymentMethod?.paymentMethod?.id,
+          name,
+          email,
+          priceId,
+        }),
+      }).then((res) => res.json());
 
-      // const confirmPayment = await stripe?.confirmCardPayment(
-      //   response.clientSecret
-      // );
-
-      // if (confirmPayment?.error) {
-      //   alert(confirmPayment.error.message);
-      // } else {
       alert("Success! Check your email for the invoice.");
       window.localStorage.setItem(
         "sub_scription",
