@@ -147,61 +147,58 @@ const SignUp = () => {
       case 5:
         return <Process5Page signup={signUp} setChallenge={setChallenge} />;
 
-      // case 3: return <ComponentC />;
-      // case 4:  return <ComponentD />;
-
       default:
         return (
           <AuthLayout r={"/graphic/auth/g1.svg"}>
-            {/* <form onSubmit={changePage.bind(this, 1)}> */}
-            <div className="w-[100%] h-[100vh] py-[100px] mobile:px-[25px] laptop:px-[80px]">
-              <div className=" mobile:w-[100%] laptop:w-[500px] h-[100%] flex flex-col justify-center">
-                <h1 className="text-[35px] font-extrabold">
-                  Create new account
-                </h1>
-                <p className="text-[17px] font-medium mt-[10px]">
-                  Create a new account.
-                </p>
-                <div className="w-[100%] border-[1px] overflow-hidden mobile:mt-[10px] laptop:mt-[40px] rounded-[4px] border-[#0000006B] flex ">
-                  <div className="w-[50px] h-[60px] flex items-center justify-center shrink-0">
-                    <img src="/graphic/auth/mail.svg" alt="" />
+            <form onSubmit={changePage.bind(this, 1)}>
+              <div className="w-[100%] h-[100vh] py-[100px] mobile:px-[25px] laptop:px-[80px]">
+                <div className=" mobile:w-[100%] laptop:w-[500px] h-[100%] flex flex-col justify-center">
+                  <h1 className="text-[35px] font-extrabold">
+                    Create new account
+                  </h1>
+                  <p className="text-[17px] font-medium mt-[10px]">
+                    Create a new account.
+                  </p>
+                  <div className="w-[100%] border-[2px] overflow-hidden mobile:mt-[10px] laptop:mt-[40px] rounded-[4px] border-[#0000006B] flex ">
+                    <div className="w-[50px] h-[60px] flex items-center justify-center shrink-0">
+                      <img src="/graphic/auth/mail.svg" alt="" />
+                    </div>
+                    <input
+                      type="email"
+                      className="w-[100%] h-[100%] text-[16px] font-medium px-[12px] outline-none"
+                      placeholder="Email Address"
+                      name="email"
+                      onChange={(e) => setEmail(e)}
+                    />
                   </div>
-                  <input
-                    type="email"
-                    className="w-[100%] h-[100%] text-[16px] font-medium px-[12px] outline-none"
-                    placeholder="Email Address"
-                    name="email"
-                    onChange={(e) => setEmail(e)}
-                  />
-                </div>
-                <div className="w-[100%] border-[1px] overflow-hidden mt-[20px] rounded-[4px] border-[#0000006B] flex ">
-                  <div className="w-[50px] h-[60px] flex items-center justify-center shrink-0">
-                    <img src="/graphic/auth/lock.svg" alt="" />
+                  <div className="w-[100%] border-[1px] overflow-hidden mt-[20px] rounded-[4px] border-[#0000006B] flex ">
+                    <div className="w-[30px] h-[60px] flex items-center justify-center shrink-0">
+                      <img src="/graphic/auth/lock.svg" alt="" />
+                    </div>
+                    <input
+                      type="password"
+                      className="w-[100%] h-[100%] text-[16px] font-medium px-[12px] outline-none"
+                      placeholder="Password"
+                      name="password"
+                      onChange={(e) => setEmail(e)}
+                    />
                   </div>
-                  <input
-                    type="password"
-                    className="w-[100%] h-[100%] text-[16px] font-medium px-[12px] outline-none"
-                    placeholder="Password"
-                    name="password"
-                    onChange={(e) => setEmail(e)}
-                  />
+                  {error && <p>{error}</p>}
+                  <div
+                    className="w-[100%] h-[50px] mt-[20px] bg-[#E14857] rounded-[3px] text-[#fff] font-bold tracking-wide cursor-pointer flex items-center justify-center"
+                    type="submit"
+                    onClick={() => changePage(1)}
+                  >
+                    Continue with email
+                  </div>
+                  <p className="mt-[25px] text-[#000000AB] font-medium">
+                    By clicking “Continue with Email” above, you acknowledge
+                    that you have read and understood, and agree to Salesensei
+                    Terms & Conditions and Privacy Policy.
+                  </p>
                 </div>
-                {error && <p>{error}</p>}
-                <div
-                  className="w-[100%] h-[50px] mt-[20px] bg-[#E14857] rounded-[3px] text-[#fff] font-bold tracking-wide cursor-pointer flex items-center justify-center"
-                  type="submit"
-                  onClick={() => changePage(1)}
-                >
-                  Continue with email
-                </div>
-                <p className="mt-[20px] text-[#000000AB] font-medium">
-                  By clicking “Continue with Email” above, you acknowledge that
-                  you have read and understood, and agree to Salesensei Terms &
-                  Conditions and Privacy Policy.
-                </p>
               </div>
-            </div>
-            {/* </form> */}
+            </form>
           </AuthLayout>
         );
     }
