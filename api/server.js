@@ -14,7 +14,6 @@ const bodyParser = require("body-parser");
 //const connectDb = require("./config/db.config");
 
 const userController = require("./src/controllers/user.controller");
-const cacheAsync = require("./src/utilis/cacheAsync");
 // create express app
 //const MONGO_URL = process.env.MONGO_URL;
 const app = express();
@@ -99,6 +98,7 @@ app.get("/", (req, res) => {
 // Require user routes
 const userRoutes = require("./src/routes/user.routes");
 // const chatRoutes = require('./src/routes/chat.routes')
+const helperFunc = require("./src/utilis/helperFunc");
 // using as middleware
 app.use("/api/users", userRoutes);
 app.use("/api/login", userRoutes);
