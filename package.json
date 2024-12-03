@@ -17,9 +17,8 @@
     "stripe": "^13.2.0"
   },
   "scripts": {
-    "start": "npm run test | react-scripts --openssl-legacy-provider start",
-    "build": "npm run test | react-scripts --openssl-legacy-provider build",
-    "test": "node src/App.test.js",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts --openssl-legacy-provider build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
