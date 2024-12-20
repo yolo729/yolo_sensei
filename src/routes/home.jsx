@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 
 const HomePage = React.lazy(() => import("../views/index.jsx"));
 
